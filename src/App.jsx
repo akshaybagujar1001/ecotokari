@@ -26,7 +26,7 @@ function Layout({ children }) {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/ecotokari">
+    <BrowserRouter>
       <AuthProvider>
         <CartProvider>
           <Routes>
