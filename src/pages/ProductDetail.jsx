@@ -1,28 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Star, ShoppingCart, ArrowLeft, Check, Truck, ShieldCheck, Leaf } from 'lucide-react';
-import { PRODUCTS } from '../data/products';
+import { Star, ShoppingCart, Check, Truck, ShieldCheck, Leaf } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import ProductCard from '../components/ProductCard';
+import { fetchProduct, fetchProducts } from '../lib/api';
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { addToCart } = useCart();
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
+  const [product, setProduct] = useState(null);
+  const [related, setRelated] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const product = PRODUCTS.find(p => p.id === Number(id));
+  useEffect(() => {
+    let active = true;
+
+    async function loadProduct() {
+      setLoading(true);
+      setError('');
+      try {
+        const [{ product }, relatedData] = await Promise.all([
+          fetchProduct(id),
+          fetchProducts(),
+        ]);
+        if (!active) return;
+        setProduct(product);
+        setRelated((relatedData.products || []).filter((item) => item.category === product.category && item.id !== product.id).slice(0, 4));
+      } catch (err) {
+        if (!active) return;
+        setError(err.message);
+      } finally {
+        if (active) setLoading(false);
+      }
+    }
+
+    loadProduct();
+    return () => { active = false; };
+  }, [id]);
+
+  const discount = useMemo(() => {
+    if (!product?.originalPrice || !product?.price || product.originalPrice <= product.price) return 0;
+    return Math.round((1 - product.price / product.originalPrice) * 100);
+  }, [product]);
+
+  if (loading) return <div className="min-h-screen flex items-center justify-center text-gray-500">Loading product...</div>;
+  if (error) return <div className="min-h-screen flex items-center justify-center text-red-600">{error}</div>;
   if (!product) return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-4">
       <p className="text-xl text-gray-500">Product not found</p>
       <Link to="/products" className="btn-primary">Back to Shop</Link>
     </div>
   );
-
-  const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
-  const discount = Math.round((1 - product.price / product.originalPrice) * 100);
 
   const handleAdd = () => {
     addToCart(product, qty);
@@ -46,7 +78,13 @@ export default function ProductDetail() {
           {/* Images */}
           <div>
             <div className="rounded-xl overflow-hidden aspect-square mb-3">
-              <img src={product.images[activeImg]} alt={product.name} className="w-full h-full object-cover" />
+              {product.images.length > 0 ? (
+                <img src={product.images[activeImg]} alt={product.name} className="w-full h-full object-cover" />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-gray-100 text-7xl font-bold text-gray-300">
+                  {product.name?.charAt(0) || '?'}
+                </div>
+              )}
             </div>
             {product.images.length > 1 && (
               <div className="flex gap-2">

@@ -13,6 +13,8 @@ import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import ProtectedRoute from './components/ProtectedRoute';
+import Account from './pages/Account';
 
 function Layout({ children }) {
   return (
@@ -37,7 +39,8 @@ export default function App() {
             <Route path="/products" element={<Layout><Products /></Layout>} />
             <Route path="/products/:id" element={<Layout><ProductDetail /></Layout>} />
             <Route path="/cart" element={<Layout><Cart /></Layout>} />
-            <Route path="/checkout" element={<Layout><Checkout /></Layout>} />
+            <Route path="/checkout" element={<Layout><ProtectedRoute><Checkout /></ProtectedRoute></Layout>} />
+            <Route path="/account" element={<Layout><ProtectedRoute><Account /></ProtectedRoute></Layout>} />
             <Route path="/about" element={<Layout><About /></Layout>} />
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="*" element={

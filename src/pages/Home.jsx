@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Truck, ShieldCheck, Leaf, Phone, Star, ArrowRight, Award, Users, PackageCheck } from 'lucide-react';
-import { PRODUCTS, TESTIMONIALS } from '../data/products';
+import { TESTIMONIALS } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import { fetchProducts } from '../lib/api';
 
 const STATS = [
   { icon: Users, value: '5,000+', label: 'Happy Customers' },
@@ -18,7 +20,23 @@ const WHY = [
 ];
 
 export default function Home() {
-  const featured = PRODUCTS.slice(0, 4);
+  const [featured, setFeatured] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+
+    fetchProducts()
+      .then((data) => {
+        if (!active) return;
+        setFeatured((data.products || []).slice(0, 4));
+      })
+      .catch(() => {
+        if (!active) return;
+        setFeatured([]);
+      });
+
+    return () => { active = false; };
+  }, []);
 
   return (
     <div className="min-h-screen">

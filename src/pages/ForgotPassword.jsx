@@ -14,19 +14,16 @@ export default function ForgotPassword() {
   const handleEmailSubmit = e => {
     e.preventDefault();
     setError('');
-    const users = JSON.parse(localStorage.getItem('eco_users') || '[]');
-    if (!users.find(u => u.email === email)) return setError('No account found with this email');
     setStep(1);
   };
 
-  const handleReset = e => {
+  const handleUnavailableReset = e => {
     e.preventDefault();
     setError('');
     if (form.newPassword !== form.confirm) return setError('Passwords do not match');
     if (form.newPassword.length < 6) return setError('Password must be at least 6 characters');
     try {
       resetPassword({ email, newPassword: form.newPassword });
-      setStep(2);
     } catch (err) {
       setError(err.message);
     }
@@ -60,7 +57,7 @@ export default function ForgotPassword() {
               <h1 className="font-display text-2xl font-bold text-gray-900 mb-1">Set New Password</h1>
               <p className="text-gray-500 text-sm mb-6">Create a strong password for <strong>{email}</strong></p>
               {error && <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3 mb-5">{error}</div>}
-              <form onSubmit={handleReset} className="space-y-4">
+              <form onSubmit={handleUnavailableReset} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">New Password</label>
                   <div className="relative">
@@ -79,6 +76,9 @@ export default function ForgotPassword() {
                     placeholder="Re-enter password" className="input-field" />
                 </div>
                 <button type="submit" className="btn-primary w-full">Reset Password</button>
+                <p className="text-xs text-gray-400">
+                  Password reset is not connected yet. Contact EcoTokari support to change your password.
+                </p>
               </form>
             </>
           ) : (

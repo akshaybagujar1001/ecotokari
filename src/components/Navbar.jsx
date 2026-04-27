@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, Menu, X, Leaf, LogOut, ChevronDown } from 'lucide-react';
+import { ShoppingCart, User, Menu, X, Leaf, LogOut, ChevronDown, Package } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 
@@ -82,6 +82,12 @@ export default function Navbar() {
                 </button>
                 {dropOpen && (
                   <div className="absolute right-0 mt-1 w-44 bg-white rounded-xl shadow-lg border border-gray-100 py-1">
+                    <Link to="/account" onClick={() => setDropOpen(false)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                      <User size={14} /> My Account
+                    </Link>
+                    <Link to="/account" onClick={() => setDropOpen(false)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                      <Package size={14} /> My Orders
+                    </Link>
                     <button onClick={handleLogout} className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50">
                       <LogOut size={14} /> Sign Out
                     </button>
@@ -117,9 +123,12 @@ export default function Navbar() {
           ))}
           <div className="pt-2 border-t border-gray-100 flex flex-col gap-2">
             {user ? (
-              <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 text-sm text-red-600">
-                <LogOut size={14} /> Sign Out ({user.name})
-              </button>
+              <>
+                <Link to="/account" onClick={() => setOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">My Account</Link>
+                <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 text-sm text-red-600">
+                  <LogOut size={14} /> Sign Out ({user.name})
+                </button>
+              </>
             ) : (
               <>
                 <Link to="/login" onClick={() => setOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Log In</Link>

@@ -1,15 +1,43 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
-import { PRODUCTS, CATEGORIES } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import { fetchProducts } from '../lib/api';
 
 export default function Products() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
   const [sort, setSort] = useState('popular');
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState(['All']);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadProducts() {
+      setLoading(true);
+      setError('');
+
+      try {
+        const data = await fetchProducts();
+        if (!active) return;
+        setProducts(data.products || []);
+        setCategories(data.categories?.length ? data.categories : ['All']);
+      } catch (err) {
+        if (!active) return;
+        setError(err.message);
+      } finally {
+        if (active) setLoading(false);
+      }
+    }
+
+    loadProducts();
+    return () => { active = false; };
+  }, []);
 
   const filtered = useMemo(() => {
-    let list = PRODUCTS.filter(p => {
+    let list = products.filter(p => {
       const matchCat = category === 'All' || p.category === category;
       const matchSearch = p.name.toLowerCase().includes(search.toLowerCase()) ||
         p.description.toLowerCase().includes(search.toLowerCase());
@@ -19,7 +47,7 @@ export default function Products() {
     if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price);
     if (sort === 'rating') list = [...list].sort((a, b) => b.rating - a.rating);
     return list;
-  }, [search, category, sort]);
+  }, [search, category, sort, products]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -66,7 +94,7 @@ export default function Products() {
 
         {/* Category tabs */}
         <div className="flex gap-2 flex-wrap mb-8">
-          {CATEGORIES.map(c => (
+          {categories.map(c => (
             <button key={c} onClick={() => setCategory(c)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 category === c ? 'bg-brand-700 text-white shadow-sm' : 'bg-white text-gray-600 border border-gray-200 hover:border-brand-300 hover:text-brand-700'
@@ -75,6 +103,9 @@ export default function Products() {
             </button>
           ))}
         </div>
+
+        {loading && <p className="text-sm text-gray-500 mb-5">Loading products...</p>}
+        {error && <p className="mb-5 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
 
         {/* Results count */}
         <p className="text-sm text-gray-500 mb-5">

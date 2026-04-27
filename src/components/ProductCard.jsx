@@ -9,12 +9,18 @@ export default function ProductCard({ product }) {
   return (
     <div className="card group flex flex-col">
       <Link to={`/products/${product.id}`} className="relative overflow-hidden aspect-[4/3]">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-        />
+        {product.image ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gray-100 text-4xl font-bold text-gray-300">
+            {product.name?.charAt(0) || '?'}
+          </div>
+        )}
         {product.badge && (
           <span className={`absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full
             ${product.badge === 'Best Seller' ? 'bg-amber-400 text-amber-900' :
