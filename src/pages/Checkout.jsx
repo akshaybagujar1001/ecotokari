@@ -49,7 +49,6 @@ export default function Checkout() {
     setPlacing(true);
     try {
       await placeOrder({
-        userId: user.id,
         shipping: form,
         paymentMethod: payment,
         items,

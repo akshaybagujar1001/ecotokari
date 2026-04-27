@@ -28,7 +28,7 @@ export default function Account() {
       setLoading(true);
       setError('');
       try {
-        const data = await fetchAccount(user.id);
+        const data = await fetchAccount();
         if (!active) return;
         setProfile(data.profile);
         setOrders(data.orders || []);
