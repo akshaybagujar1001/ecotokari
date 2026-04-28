@@ -4,14 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="EcoTokari – Pune's largest supplier of fresh banana leaves, banana stems & banana flowers. Pan-India delivery to hotels, caterers & events." />
-    <meta name="keywords" content="banana leaf supplier Pune, banana leaves wholesale, fresh banana leaves, eco tokari, ecotokari" />
-    <meta property="og:title" content="EcoTokari – Fresh Banana Leaves Delivered Pan-India" />
+    <meta
+      name="description"
+      content="EcoTokari - Pune's largest supplier of fresh banana leaves, banana stems & banana flowers. Pan-India delivery to hotels, caterers & events."
+    />
+    <meta
+      name="keywords"
+      content="banana leaf supplier Pune, banana leaves wholesale, fresh banana leaves, eco tokari, ecotokari"
+    />
+    <meta property="og:title" content="EcoTokari - Fresh Banana Leaves Delivered Pan-India" />
     <meta property="og:description" content="Largest supplier of fresh banana leaves in Pune. Home delivery available." />
-    <title>EcoTokari – Fresh Banana Leaves | Pan-India Supply</title>
+    <title>EcoTokari - Fresh Banana Leaves | Pan-India Supply</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        const redirect = sessionStorage.getItem('redirect');
+        if (!redirect) return;
+        sessionStorage.removeItem('redirect');
+        const target = redirect.startsWith('/') ? redirect : `/${redirect}`;
+        window.history.replaceState(null, '', target);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

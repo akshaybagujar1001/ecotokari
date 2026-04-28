@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>EcoTokari</title>
+    <script>
+      (function () {
+        const redirect = window.location.pathname + window.location.search + window.location.hash;
+        sessionStorage.setItem('redirect', redirect);
+        window.location.replace('/');
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
