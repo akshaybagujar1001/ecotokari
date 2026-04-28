@@ -43,6 +43,7 @@ export default function Products() {
         p.description.toLowerCase().includes(search.toLowerCase());
       return matchCat && matchSearch;
     });
+    if (sort === 'popular') list = [...list].sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
     if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
     if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price);
     if (sort === 'rating') list = [...list].sort((a, b) => b.rating - a.rating);
