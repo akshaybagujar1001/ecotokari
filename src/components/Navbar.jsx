@@ -11,12 +11,20 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const navLinks = [
+  const publicNavLinks = [
     { to: '/', label: 'Home' },
     { to: '/products', label: 'Shop' },
     { to: '/about', label: 'About' },
     { to: '/contact', label: 'Contact' },
   ];
+
+  const customerNavLinks = [
+    { to: '/products', label: 'Products' },
+    { to: '/account#orders', label: 'My Orders' },
+    { to: '/account', label: 'My Account' },
+  ];
+
+  const navLinks = user ? customerNavLinks : publicNavLinks;
 
   const handleLogout = () => {
     logout();
@@ -85,7 +93,7 @@ export default function Navbar() {
                     <Link to="/account" onClick={() => setDropOpen(false)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                       <User size={14} /> My Account
                     </Link>
-                    <Link to="/account" onClick={() => setDropOpen(false)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    <Link to="/account#orders" onClick={() => setDropOpen(false)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                       <Package size={14} /> My Orders
                     </Link>
                     <button onClick={handleLogout} className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50">
@@ -125,6 +133,7 @@ export default function Navbar() {
             {user ? (
               <>
                 <Link to="/account" onClick={() => setOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">My Account</Link>
+                <Link to="/account#orders" onClick={() => setOpen(false)} className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">My Orders</Link>
                 <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 text-sm text-red-600">
                   <LogOut size={14} /> Sign Out ({user.name})
                 </button>

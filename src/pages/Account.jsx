@@ -91,7 +91,7 @@ export default function Account() {
             <Link to="/products" className="btn-primary mt-6 w-full justify-center">Browse Products</Link>
           </div>
 
-          <div className="space-y-4">
+          <div id="orders" className="space-y-4">
             {orders.length === 0 ? (
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-10 text-center">
                 <Package className="mx-auto h-12 w-12 text-gray-300 mb-4" />
