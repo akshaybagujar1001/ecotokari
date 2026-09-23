@@ -20,19 +20,18 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen">
-      <div className="bg-brand-950 text-white py-14 md:py-16 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(74,222,128,0.15),_transparent_60%)]" />
-        <div className="relative page-shell">
-          <p className="font-display text-brand-300 text-lg font-semibold mb-2">EcoTokari</p>
-          <h1 className="font-display text-4xl font-bold mb-3">Get in Touch</h1>
-          <p className="text-brand-100/85 max-w-md mx-auto leading-relaxed">
+    <div className="min-h-screen bg-white">
+      <div className="border-b border-brand-100 bg-gradient-to-b from-[#f4f8f2] to-white py-10 md:py-12 text-center">
+        <div className="page-shell">
+          <p className="mb-2 text-sm font-semibold tracking-tight text-brand-600">EcoTokari</p>
+          <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-brand-950 md:text-4xl">Get in Touch</h1>
+          <p className="mx-auto max-w-md text-[15px] font-medium leading-relaxed tracking-tight text-gray-600">
             Questions about bulk orders? Need a custom quote for your hotel? We&apos;re here to help.
           </p>
         </div>
       </div>
 
-      <div className="page-shell py-14 md:py-16">
+      <div className="page-shell py-10 md:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           <div className="space-y-4">
             {INFO.map(({ icon: Icon, title, lines }) => (

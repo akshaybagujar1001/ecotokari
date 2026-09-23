@@ -40,57 +40,52 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero — one composition: brand, headline, line, CTAs, full-bleed image */}
-      <section className="relative min-h-[88vh] flex items-end md:items-center overflow-hidden bg-brand-950">
+      {/* Hero — compact composition */}
+      <section className="relative h-[42vh] min-h-[280px] max-h-[420px] flex items-center overflow-hidden bg-brand-950">
         <div className="absolute inset-0">
           <img
             src="/hero-banana-leaves.png"
             alt="Fresh banana leaves"
-            className="w-full h-full object-cover scale-105 animate-fade-in"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/75 to-brand-950/35 md:bg-gradient-to-r md:from-brand-950/95 md:via-brand-950/70 md:to-brand-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-950/90 via-brand-950/55 to-brand-950/15" />
         </div>
 
-        <div className="relative page-shell w-full py-20 md:py-28">
-          <div className="max-w-2xl animate-fade-up">
-            <p className="font-display text-brand-300 text-xl md:text-2xl font-semibold tracking-tight mb-4">
+        <div className="relative page-shell w-full py-10 md:py-12">
+          <div className="max-w-lg animate-fade-up">
+            <p className="text-brand-300 text-xs md:text-sm font-semibold tracking-tight mb-2">
               EcoTokari
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white leading-[1.08] mb-5 text-balance">
+            <h1 className="text-2xl sm:text-3xl md:text-[2.15rem] font-extrabold text-white leading-[1.2] tracking-tight mb-3 text-balance">
               Fresh banana leaves, delivered pan-India
             </h1>
-            <p className="text-base md:text-lg text-brand-100/90 mb-8 leading-relaxed max-w-xl">
+            <p className="text-sm text-brand-50/90 mb-5 leading-relaxed max-w-md font-medium tracking-tight">
               Farm-fresh leaves, stems & flowers from Pune — trusted by hotels, caterers, and families.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link to="/products" className="btn-primary text-center text-base bg-white text-brand-900 hover:bg-brand-50">
-                Shop Now <ArrowRight size={18} />
+            <div className="flex flex-col sm:flex-row gap-2.5">
+              <Link to="/products" className="btn-primary !px-4 !py-2 text-center text-sm bg-white text-brand-900 hover:bg-brand-50">
+                Shop Now <ArrowRight size={15} />
               </Link>
               <a
                 href="tel:+918010884556"
-                className="btn-outline border-white/80 text-white hover:bg-white hover:text-brand-900 text-center text-base"
+                className="btn-outline !px-4 !py-2 border-white/80 text-white hover:bg-white hover:text-brand-900 text-center text-sm"
               >
-                <Phone size={16} /> Call for Bulk Orders
+                <Phone size={14} /> Call for Bulk Orders
               </a>
             </div>
           </div>
-        </div>
-
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 text-white/35 text-xs">
-          <span>Scroll</span>
-          <div className="w-px h-7 bg-white/25 animate-soft-pulse" />
         </div>
       </section>
 
       {/* Trust strip */}
       <section className="bg-brand-800 border-y border-brand-700/50">
-        <div className="page-shell py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-brand-600/60">
+        <div className="page-shell py-6 md:py-7">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-0 md:divide-x md:divide-brand-600/60">
             {STATS.map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex flex-col items-center text-center px-4">
-                <Icon size={20} className="text-brand-300 mb-2" />
-                <span className="text-xl md:text-2xl font-bold text-white tracking-tight">{value}</span>
-                <span className="text-xs md:text-sm text-brand-200 mt-0.5">{label}</span>
+                <Icon size={18} className="text-brand-300 mb-1.5" />
+                <span className="text-lg md:text-xl font-extrabold text-white tracking-tight">{value}</span>
+                <span className="text-[11px] md:text-xs text-brand-100 mt-0.5 font-medium tracking-tight">{label}</span>
               </div>
             ))}
           </div>
@@ -110,8 +105,8 @@ export default function Home() {
                 <div className="w-12 h-12 bg-brand-100 text-brand-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Icon size={22} />
                 </div>
-                <h3 className="font-semibold text-brand-950 mb-2">{title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                <h3 className="font-bold text-brand-950 mb-2 tracking-tight">{title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed font-medium tracking-tight">{desc}</p>
               </div>
             ))}
           </div>
@@ -119,19 +114,26 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 md:py-24 bg-gradient-to-b from-brand-50/80 to-transparent">
+      <section className="py-14 md:py-16">
         <div className="page-shell">
-          <div className="flex items-end justify-between mb-10 gap-4">
+          <div className="mb-7 flex items-end justify-between gap-4">
             <div>
-              <h2 className="section-title text-left">Our Best Sellers</h2>
-              <p className="text-gray-600 mt-2">Freshest picks loved by our customers</p>
+              <h2 className="text-left text-2xl font-extrabold tracking-tight text-brand-950 md:text-3xl">
+                Our Best Sellers
+              </h2>
+              <p className="mt-1.5 text-sm font-medium tracking-tight text-gray-500">
+                Freshest picks loved by our customers
+              </p>
             </div>
-            <Link to="/products" className="hidden md:inline-flex items-center gap-1 text-brand-700 font-semibold hover:gap-2 transition-all">
-              View all <ArrowRight size={16} />
+            <Link
+              to="/products"
+              className="hidden items-center gap-1 text-sm font-semibold tracking-tight text-brand-700 transition-all hover:gap-2 md:inline-flex"
+            >
+              View all <ArrowRight size={15} />
             </Link>
           </div>
           {featured.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {featured.map(p => <ProductCard key={p.id} product={p} />)}
             </div>
           ) : (
@@ -140,8 +142,8 @@ export default function Home() {
               <Link to="/products" className="btn-outline mt-4 text-sm">Browse Shop</Link>
             </div>
           )}
-          <div className="text-center mt-8 md:hidden">
-            <Link to="/products" className="btn-outline">View All Products</Link>
+          <div className="mt-6 text-center md:hidden">
+            <Link to="/products" className="btn-outline text-sm">View All Products</Link>
           </div>
         </div>
       </section>
@@ -161,8 +163,8 @@ export default function Home() {
                 <div className="w-12 h-12 bg-brand-700 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-5 shadow-md shadow-brand-700/25">
                   {step}
                 </div>
-                <h3 className="font-semibold text-brand-950 text-lg mb-2">{title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
+                <h3 className="font-bold text-brand-950 text-lg mb-2 tracking-tight">{title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed font-medium tracking-tight">{desc}</p>
               </div>
             ))}
           </div>
@@ -197,22 +199,23 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="relative overflow-hidden bg-brand-900 text-white py-16 md:py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(74,222,128,0.18),_transparent_55%)]" />
-        <div className="relative page-shell text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-balance">Ready to Order Fresh?</h2>
-          <p className="text-brand-200 mb-8 max-w-xl mx-auto leading-relaxed">
+      <section className="border-y border-brand-100 bg-gradient-to-br from-brand-50 via-[#eef6ea] to-white py-12 md:py-14">
+        <div className="page-shell text-center">
+          <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-brand-950 md:text-3xl text-balance">
+            Ready to Order Fresh?
+          </h2>
+          <p className="mx-auto mb-7 max-w-xl text-sm font-medium leading-relaxed tracking-tight text-gray-600 md:text-[15px]">
             Get the freshest banana leaves delivered to your door. Hotels and caterers can request a custom quote.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link to="/products" className="btn-primary bg-white text-brand-900 hover:bg-brand-50">
+          <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <Link to="/products" className="btn-primary !px-5 !py-2.5 text-sm">
               Shop Now
             </Link>
             <a
               href="https://wa.me/918010884556"
               target="_blank"
               rel="noreferrer"
-              className="btn-outline border-white/80 text-white hover:bg-white hover:text-brand-900"
+              className="btn-outline !px-5 !py-2.5 text-sm"
             >
               WhatsApp Us
             </a>

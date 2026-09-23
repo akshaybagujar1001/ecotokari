@@ -41,9 +41,9 @@ export default function Navbar() {
             <div className="bg-brand-700 text-white p-2 rounded-xl group-hover:bg-brand-800 transition-colors shadow-sm shadow-brand-700/20">
               <Leaf size={20} />
             </div>
-            <div>
-              <span className="font-display font-bold text-xl text-brand-900">Eco</span>
-              <span className="font-display font-bold text-xl text-brand-600">Tokari</span>
+            <div className="leading-none">
+              <span className="font-display font-extrabold text-xl tracking-tight text-brand-900">Eco</span>
+              <span className="font-display font-extrabold text-xl tracking-tight text-brand-600">Tokari</span>
             </div>
           </Link>
 
@@ -55,7 +55,7 @@ export default function Navbar() {
                 to={l.to}
                 end={l.to === '/'}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-brand-50 text-brand-800' : 'text-gray-600 hover:bg-brand-50/70 hover:text-brand-900'}`
+                  `px-4 py-2 rounded-full text-sm font-semibold tracking-tight transition-colors ${isActive ? 'bg-brand-50 text-brand-800' : 'text-gray-600 hover:bg-brand-50/70 hover:text-brand-900'}`
                 }
               >
                 {l.label}

@@ -19,8 +19,14 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
-        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'system-ui', 'sans-serif'],
+      },
+      fontWeight: {
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
       },
       animation: {
         'fade-up': 'fadeUp 0.7s ease-out',

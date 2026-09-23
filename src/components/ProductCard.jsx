@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Sparkles, Truck, Check, Minus, Plus } from 'lucide-react';
+import { ShoppingCart, Check, Minus, Plus } from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 
@@ -9,12 +9,9 @@ export default function ProductCard({ product }) {
   const [qty, setQty] = useState(1);
   const hasDiscount = product.originalPrice > product.price;
   const discount = hasDiscount ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
-  const salesBadge = product.popularity > 1000
-    ? 'Best Seller'
-    : product.popularity > 0
-      ? 'Popular Choice'
-      : null;
   const displayCategory = product.category === 'Legacy Import' ? 'Farm Essentials' : product.category;
+  const showBadge = product.badge && product.badge !== 'In Stock';
+  const isPopular = product.popularity > 1000;
 
   const clampQty = (value) => {
     const num = Number.parseInt(String(value).replace(/\D/g, ''), 10);
@@ -46,136 +43,133 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-brand-100 bg-white shadow-[0_8px_28px_rgba(15,40,20,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,40,20,0.1)]">
-      <Link to={`/products/${product.id}`} className="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-brand-50 via-white to-lime-50">
-        {product.image ? (
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-brand-50 text-4xl font-bold text-brand-200">
-            {product.name?.charAt(0) || '?'}
-          </div>
-        )}
-        {product.badge && (
-          <span
-            className={`absolute top-3 left-3 rounded-full px-2.5 py-1 text-xs font-bold ${
-              product.badge === 'Out of Stock'
-                ? 'bg-rose-600 text-white'
-                : product.badge === 'In Stock'
-                  ? 'bg-brand-700 text-white'
-                  : product.badge === 'Best Seller'
-                    ? 'bg-amber-400 text-amber-950'
-                    : product.badge === 'Premium'
-                      ? 'bg-brand-800 text-white'
-                      : product.badge === 'B2B'
-                        ? 'bg-brand-600 text-white'
-                        : 'bg-brand-700 text-white'
-            }`}
-          >
-            {product.badge}
-          </span>
-        )}
-        {salesBadge && (
-          <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-gray-700 shadow-sm">
-            <Sparkles size={12} className="text-amber-500" />
-            {salesBadge}
-          </span>
-        )}
-        {hasDiscount && (
-          <span className="absolute top-3 right-3 rounded-full bg-red-500 px-2 py-0.5 text-xs font-bold text-white">
-            -{discount}%
-          </span>
-        )}
-      </Link>
-
-      <div className="flex flex-1 flex-col p-4">
-        <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">{displayCategory}</p>
-        <Link
-          to={`/products/${product.id}`}
-          className="mb-2 min-h-[3.25rem] text-lg font-semibold leading-snug text-brand-950 transition-colors hover:text-brand-700"
-        >
-          {product.name}
-        </Link>
-
-        <p className={`mb-3 text-sm font-semibold ${product.inStock ? 'text-brand-700' : 'text-rose-600'}`}>
-          {product.inStock ? 'In Stock' : 'Out of Stock'}
-        </p>
-
-        <div className="mb-4 flex items-center gap-2 text-xs text-gray-500">
-          <span className="rounded-full bg-brand-50 px-2.5 py-1 text-brand-700 font-medium">Fresh dispatch</span>
-          <span className="inline-flex items-center gap-1">
-            <Truck size={12} />
-            Pan-India
-          </span>
+    <div className="group flex flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-white transition-all duration-300 hover:border-brand-200 hover:shadow-[0_12px_32px_rgba(15,40,20,0.08)]">
+      <Link to={`/products/${product.id}`} className="relative block overflow-hidden bg-[#f3f6f1]">
+        <div className="aspect-[16/11]">
+          {product.image ? (
+            <img
+              src={product.image}
+              alt={product.name}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              loading="lazy"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-3xl font-bold text-brand-200">
+              {product.name?.charAt(0) || '?'}
+            </div>
+          )}
         </div>
 
-        <div className="mt-auto">
-          <div className="mb-3 flex items-baseline gap-2">
-            <span className="text-xl font-bold text-brand-950">₹{product.price}</span>
-            {hasDiscount && <span className="text-sm text-gray-400 line-through">₹{product.originalPrice}</span>}
-            <span className="text-xs text-gray-500">{product.unit}</span>
+        <div className="absolute inset-x-0 top-0 flex items-start justify-between p-2.5">
+          <div className="flex flex-wrap gap-1.5">
+            {showBadge && (
+              <span
+                className={`rounded-full px-2 py-0.5 text-[10px] font-bold tracking-tight ${
+                  product.badge === 'Out of Stock'
+                    ? 'bg-rose-500 text-white'
+                    : product.badge === 'Best Seller'
+                      ? 'bg-amber-400 text-amber-950'
+                      : 'bg-white/95 text-brand-900 shadow-sm'
+                }`}
+              >
+                {product.badge}
+              </span>
+            )}
+            {isPopular && !showBadge && (
+              <span className="rounded-full bg-white/95 px-2 py-0.5 text-[10px] font-bold tracking-tight text-brand-900 shadow-sm">
+                Best seller
+              </span>
+            )}
           </div>
+          {hasDiscount && (
+            <span className="rounded-full bg-rose-500 px-2 py-0.5 text-[10px] font-bold text-white">
+              -{discount}%
+            </span>
+          )}
+        </div>
+      </Link>
 
-          <div className="flex items-center gap-2">
-            <div
-              className={`flex items-center overflow-hidden rounded-xl border bg-white ${
-                product.inStock ? 'border-brand-200' : 'border-gray-200 opacity-60'
-              }`}
-            >
-              <button
-                type="button"
-                aria-label="Decrease quantity"
-                disabled={!product.inStock}
-                onClick={() => setQty((current) => Math.max(1, clampQty(current) - 1))}
-                className="px-2.5 py-2.5 text-brand-800 transition-colors hover:bg-brand-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
-              >
-                <Minus size={14} />
-              </button>
-              <input
-                type="text"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                aria-label="Quantity"
-                disabled={!product.inStock}
-                value={qty}
-                onChange={handleQtyInput}
-                onBlur={handleQtyBlur}
-                className="w-10 border-x border-brand-100 bg-transparent py-2 text-center text-sm font-semibold text-brand-950 outline-none disabled:cursor-not-allowed"
-              />
-              <button
-                type="button"
-                aria-label="Increase quantity"
-                disabled={!product.inStock}
-                onClick={() => setQty((current) => Math.min(999, clampQty(current) + 1))}
-                className="px-2.5 py-2.5 text-brand-800 transition-colors hover:bg-brand-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
-              >
-                <Plus size={14} />
-              </button>
-            </div>
+      <div className="flex flex-1 flex-col gap-2.5 p-3.5">
+        <div>
+          <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-600">
+            {displayCategory}
+          </p>
+          <Link
+            to={`/products/${product.id}`}
+            className="line-clamp-2 text-[15px] font-bold leading-snug tracking-tight text-brand-950 transition-colors hover:text-brand-700"
+          >
+            {product.name}
+          </Link>
+          <p className={`mt-1 text-xs font-semibold tracking-tight ${product.inStock ? 'text-brand-600' : 'text-rose-500'}`}>
+            {product.inStock ? 'In stock · Pan-India delivery' : 'Out of stock'}
+          </p>
+        </div>
 
+        <div className="mt-auto flex items-end justify-between gap-2 pt-1">
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-lg font-extrabold tracking-tight text-brand-950">₹{product.price}</span>
+            {hasDiscount && <span className="text-xs text-gray-400 line-through">₹{product.originalPrice}</span>}
+            {product.unit && <span className="text-[11px] font-medium text-gray-500">{product.unit}</span>}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div
+            className={`flex h-9 items-center overflow-hidden rounded-full border bg-[#f7f9f6] ${
+              product.inStock ? 'border-black/[0.08]' : 'border-gray-200 opacity-50'
+            }`}
+          >
             <button
               type="button"
-              onClick={handleAdd}
+              aria-label="Decrease quantity"
               disabled={!product.inStock}
-              className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-semibold transition-all duration-200 ${
-                !product.inStock
-                  ? 'cursor-not-allowed bg-gray-200 text-gray-500'
-                  : added
-                    ? 'bg-green-600 text-white'
-                    : 'bg-brand-700 text-white hover:bg-brand-800 active:scale-[0.98]'
-              }`}
+              onClick={() => setQty((current) => Math.max(1, clampQty(current) - 1))}
+              className="flex h-9 w-8 items-center justify-center text-brand-800 transition-colors hover:bg-white disabled:cursor-not-allowed"
             >
-              {added ? (
-                <><Check size={15} /> Added</>
-              ) : (
-                <><ShoppingCart size={15} /> {product.inStock ? 'Add' : 'Out of Stock'}</>
-              )}
+              <Minus size={13} />
+            </button>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              aria-label="Quantity"
+              disabled={!product.inStock}
+              value={qty}
+              onChange={handleQtyInput}
+              onBlur={handleQtyBlur}
+              className="h-9 w-8 bg-transparent text-center text-sm font-bold tracking-tight text-brand-950 outline-none disabled:cursor-not-allowed"
+            />
+            <button
+              type="button"
+              aria-label="Increase quantity"
+              disabled={!product.inStock}
+              onClick={() => setQty((current) => Math.min(999, clampQty(current) + 1))}
+              className="flex h-9 w-8 items-center justify-center text-brand-800 transition-colors hover:bg-white disabled:cursor-not-allowed"
+            >
+              <Plus size={13} />
             </button>
           </div>
+
+          <button
+            type="button"
+            onClick={handleAdd}
+            disabled={!product.inStock}
+            className={`flex h-9 flex-1 items-center justify-center gap-1.5 rounded-full text-sm font-semibold tracking-tight transition-all duration-200 ${
+              !product.inStock
+                ? 'cursor-not-allowed bg-gray-100 text-gray-400'
+                : added
+                  ? 'bg-green-600 text-white'
+                  : 'bg-brand-800 text-white hover:bg-brand-900 active:scale-[0.98]'
+            }`}
+          >
+            {added ? (
+              <><Check size={14} /> Added</>
+            ) : product.inStock ? (
+              <><ShoppingCart size={14} /> Add</>
+            ) : (
+              'Unavailable'
+            )}
+          </button>
         </div>
       </div>
     </div>

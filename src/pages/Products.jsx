@@ -84,10 +84,10 @@ export default function Products() {
                 <Sparkles size={14} />
                 Most ordered by customers
               </p>
-              <h1 className="font-display text-4xl font-bold tracking-tight text-brand-950 md:text-5xl text-balance">
+              <h1 className="font-display text-4xl font-extrabold tracking-tight text-brand-950 md:text-5xl text-balance">
                 Fresh Banana Products
               </h1>
-              <p className="mt-3 max-w-2xl text-lg text-gray-600 leading-relaxed">
+              <p className="mt-3 max-w-2xl text-lg text-gray-600 leading-relaxed font-medium tracking-tight">
                 Farm-harvested daily, packed with care, and delivered across India for homes, caterers, and businesses.
               </p>
               <div className="mt-6 flex flex-wrap gap-2.5">
@@ -206,7 +206,7 @@ export default function Products() {
         </p>
 
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filtered.map(p => <ProductCard key={p.id} product={p} />)}
           </div>
         ) : !loading ? (
