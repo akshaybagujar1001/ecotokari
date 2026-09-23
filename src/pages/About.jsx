@@ -7,7 +7,7 @@ export default function About() {
       <section className="relative py-20 md:py-28 bg-brand-950 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1605105789722-fb41aa5e8b0d?w=1400&q=60"
+            src="https://images.unsplash.com/photo-1608139478418-5805c4c63188?w=1400&q=60"
             alt=""
             className="w-full h-full object-cover opacity-35"
           />
@@ -43,8 +43,8 @@ export default function About() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-brand-100">
               <img
-                src="https://images.unsplash.com/photo-1574226516831-e1dff420e562?w=800&q=80"
-                alt="Banana farm"
+                src="https://images.unsplash.com/photo-1622491427961-f404948cea02?w=800&q=80"
+                alt="Fresh banana leaves"
                 className="w-full aspect-video object-cover"
               />
             </div>

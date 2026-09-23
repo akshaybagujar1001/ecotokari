@@ -44,7 +44,7 @@ export default function Home() {
       <section className="relative min-h-[88vh] flex items-end md:items-center overflow-hidden bg-brand-950">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=1600&q=80"
+            src="/hero-banana-leaves.png"
             alt="Fresh banana leaves"
             className="w-full h-full object-cover scale-105 animate-fade-in"
           />
