@@ -19,15 +19,18 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
       },
       animation: {
-        'fade-up': 'fadeUp 0.6s ease-out',
-        'fade-in': 'fadeIn 0.4s ease-out',
+        'fade-up': 'fadeUp 0.7s ease-out',
+        'fade-in': 'fadeIn 0.45s ease-out',
+        'soft-pulse': 'softPulse 2.4s ease-in-out infinite',
       },
       keyframes: {
-        fadeUp:  { '0%': { opacity: 0, transform: 'translateY(24px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+        fadeUp:  { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
         fadeIn:  { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+        softPulse: { '0%, 100%': { opacity: 0.45 }, '50%': { opacity: 0.9 } },
       },
     },
   },

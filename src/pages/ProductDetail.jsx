@@ -64,17 +64,17 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen">
+      <div className="page-shell py-8">
         <nav className="mb-6 flex items-center gap-2 text-sm text-gray-500">
           <Link to="/" className="hover:text-brand-700">Home</Link>
           <span>/</span>
           <Link to="/products" className="hover:text-brand-700">Shop</Link>
           <span>/</span>
-          <span className="truncate font-medium text-gray-900">{product.name}</span>
+          <span className="truncate font-medium text-brand-950">{product.name}</span>
         </nav>
 
-        <div className="grid grid-cols-1 gap-10 rounded-2xl bg-white p-6 shadow-sm md:p-10 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 surface p-6 md:p-10 lg:grid-cols-2">
           <div>
             <div className="mb-3 aspect-square overflow-hidden rounded-xl">
               {product.images.length > 0 ? (
@@ -108,7 +108,7 @@ export default function ProductDetail() {
                 {product.badge}
               </span>
             )}
-            <h1 className="mb-3 font-display text-2xl font-bold text-gray-900 md:text-3xl">{product.name}</h1>
+            <h1 className="mb-3 font-display text-2xl font-bold text-brand-950 md:text-3xl">{product.name}</h1>
 
             <div className="mb-4 flex items-center gap-3">
               <div className="flex gap-0.5">
@@ -121,8 +121,8 @@ export default function ProductDetail() {
             </div>
 
             <div className="mb-2 flex items-baseline gap-3">
-              <span className="text-3xl font-bold text-gray-900">Rs {product.price}</span>
-              {product.originalPrice > product.price && <span className="text-lg text-gray-400 line-through">Rs {product.originalPrice}</span>}
+              <span className="text-3xl font-bold text-brand-950">₹{product.price}</span>
+              {product.originalPrice > product.price && <span className="text-lg text-gray-400 line-through">₹{product.originalPrice}</span>}
               {discount > 0 && <span className="rounded-md bg-red-100 px-2 py-0.5 text-sm font-bold text-red-600">-{discount}%</span>}
             </div>
             <p className="mb-2 text-sm text-gray-500">{product.unit}</p>

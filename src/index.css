@@ -4,27 +4,56 @@
 
 @layer base {
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; }
+  body {
+    margin: 0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #1a2e1a;
+    background-color: #f6f8f4;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 0% -10%, rgba(34, 197, 94, 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(21, 128, 61, 0.06), transparent);
+    -webkit-font-smoothing: antialiased;
+  }
   html { scroll-behavior: smooth; }
+  ::selection {
+    background: #bbf7d0;
+    color: #14532d;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-800 transition-all duration-200 shadow-sm hover:shadow-md active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 bg-brand-700 text-white px-6 py-3 rounded-xl font-semibold
+      hover:bg-brand-800 transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98];
   }
   .btn-outline {
-    @apply border-2 border-brand-700 text-brand-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 hover:text-white transition-all duration-200 active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 border-2 border-brand-700 text-brand-700 px-6 py-3 rounded-xl font-semibold
+      hover:bg-brand-700 hover:text-white transition-all duration-200 active:scale-[0.98];
   }
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200;
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl bg-white
+      focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500 transition-all duration-200;
   }
   .card {
-    @apply bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+    @apply bg-white rounded-2xl border border-brand-100/80 shadow-[0_8px_30px_rgba(15,40,20,0.05)]
+      hover:shadow-[0_14px_40px_rgba(15,40,20,0.09)] transition-shadow duration-300 overflow-hidden;
   }
   .section-title {
-    @apply font-display text-3xl md:text-4xl font-bold text-gray-900 text-center;
+    @apply font-display text-3xl md:text-4xl font-bold text-brand-950 text-center;
   }
   .section-sub {
-    @apply text-gray-500 text-center mt-3 max-w-2xl mx-auto;
+    @apply text-gray-600 text-center mt-3 max-w-2xl mx-auto leading-relaxed;
+  }
+  .page-shell {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .surface {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl border border-brand-100/70 shadow-[0_8px_28px_rgba(15,40,20,0.04)];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }

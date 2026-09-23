@@ -63,7 +63,7 @@ export default function Signup() {
     }
   };
 
-  const PERKS = ['Free shipping on orders Rs 499+', 'Early access to festival deals', 'Order history and tracking'];
+  const PERKS = ['Free shipping on orders over 499', 'Early access to festival deals', 'Order history and tracking'];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-50 to-green-100 flex items-center justify-center px-4 py-12">

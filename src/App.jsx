@@ -13,6 +13,8 @@ import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 import ProtectedRoute from './components/ProtectedRoute';
 import Account from './pages/Account';
 
@@ -43,11 +45,13 @@ export default function App() {
             <Route path="/account" element={<Layout><ProtectedRoute><Account /></ProtectedRoute></Layout>} />
             <Route path="/about" element={<Layout><About /></Layout>} />
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
+            <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
+            <Route path="/terms" element={<Layout><Terms /></Layout>} />
             <Route path="*" element={
               <Layout>
-                <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 text-gray-400">
-                  <span className="text-7xl font-bold text-gray-200">404</span>
-                  <p className="text-lg">Page not found</p>
+                <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 text-gray-500">
+                  <span className="font-display text-7xl font-bold text-brand-200">404</span>
+                  <p className="text-lg text-brand-950">Page not found</p>
                   <a href="/" className="btn-primary text-sm">Go Home</a>
                 </div>
               </Layout>
