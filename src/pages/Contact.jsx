@@ -15,7 +15,7 @@ export default function Contact() {
   const INFO = [
     { icon: MapPin, title: 'Address', lines: ['Pimple Saudagar, Pune – 411027', 'Maharashtra, India'] },
     { icon: Phone, title: 'Phone', lines: ['+91 80108 84556', 'Mon–Sat, 8 AM – 8 PM'] },
-    { icon: Mail, title: 'Email', lines: ['hello@ecotokari.com', 'orders@ecotokari.com'] },
+    { icon: Mail, title: 'Email', lines: ['info@ecotokari.com'] },
     { icon: Clock, title: 'Business Hours', lines: ['Mon–Sat: 8 AM – 8 PM', 'Sunday: 8 AM – 2 PM'] },
   ];
 

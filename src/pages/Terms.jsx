@@ -13,7 +13,7 @@ export default function Terms() {
           <h2 className="font-display text-xl font-bold text-brand-950 pt-2">Payments</h2>
           <p>Payment methods shown at checkout are accepted as available. For bulk or hotel orders, custom payment terms may apply as agreed with EcoTokari.</p>
           <h2 className="font-display text-xl font-bold text-brand-950 pt-2">Contact</h2>
-          <p>Questions about these terms? Email <a className="text-brand-700 font-medium hover:underline" href="mailto:hello@ecotokari.com">hello@ecotokari.com</a>.</p>
+          <p>Questions about these terms? Email <a className="text-brand-700 font-medium hover:underline" href="mailto:info@ecotokari.com">info@ecotokari.com</a>.</p>
           <p className="text-xs text-gray-500 pt-4">Last updated: {new Date().getFullYear()}</p>
         </div>
       </div>

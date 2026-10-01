@@ -32,7 +32,7 @@ export default function Footer() {
               Pune&apos;s largest supplier of fresh banana leaves, stems & flowers. Serving hotels, caterers & homes pan-India since 2018.
             </p>
             <a
-              href="https://instagram.com/ecotokari8"
+              href="https://instagram.com/ecotokari80"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -79,7 +79,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={16} className="shrink-0 text-brand-600" />
-                <a href="mailto:hello@ecotokari.com" className="transition-colors hover:text-brand-700">hello@ecotokari.com</a>
+                <a href="mailto:info@ecotokari.com" className="transition-colors hover:text-brand-700">info@ecotokari.com</a>
               </li>
             </ul>
           </div>

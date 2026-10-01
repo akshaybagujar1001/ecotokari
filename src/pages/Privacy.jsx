@@ -13,7 +13,7 @@ export default function Privacy() {
           <h2 className="font-display text-xl font-bold text-brand-950 pt-2">Sharing</h2>
           <p>We do not sell your personal information. We may share order details with delivery partners solely to fulfill your order.</p>
           <h2 className="font-display text-xl font-bold text-brand-950 pt-2">Contact</h2>
-          <p>For privacy questions, email <a className="text-brand-700 font-medium hover:underline" href="mailto:hello@ecotokari.com">hello@ecotokari.com</a> or call +91 80108 84556.</p>
+          <p>For privacy questions, email <a className="text-brand-700 font-medium hover:underline" href="mailto:info@ecotokari.com">info@ecotokari.com</a> or call +91 80108 84556.</p>
           <p className="text-xs text-gray-500 pt-4">Last updated: {new Date().getFullYear()}</p>
         </div>
       </div>

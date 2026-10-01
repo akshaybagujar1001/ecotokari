@@ -19,7 +19,7 @@ const MAIN_ROUTES = [
   {
     path: '/contact',
     title: 'Contact EcoTokari – Banana Leaf Supplier, Pimple Saudagar, Pune',
-    description: 'Call +91 80108 84556 or email hello@ecotokari.com for orders, bulk quotes and delivery queries. Pimple Saudagar, Pune – 411027.',
+    description: 'Call +91 80108 84556 or email info@ecotokari.com for orders, bulk quotes and delivery queries. Pimple Saudagar, Pune – 411027.',
   },
   {
     path: '/privacy',
@@ -83,7 +83,7 @@ ${sections}
 <section lang="hi"><h2>${esc(page.hi.h)}</h2>${paragraphs(page.hi.p)}</section>
 <section lang="mr"><h2>${esc(page.mr.h)}</h2>${paragraphs(page.mr.p)}</section>
 <section><h2>Frequently asked questions</h2>${faqs}</section>
-<section><h2>Order from EcoTokari</h2><p>Pimple Saudagar, Pune – 411027, Maharashtra, India · +91 80108 84556 · hello@ecotokari.com</p></section>
+<section><h2>Order from EcoTokari</h2><p>Pimple Saudagar, Pune – 411027, Maharashtra, India · +91 80108 84556 · info@ecotokari.com</p></section>
 <nav><ul><li><a href="/">Home</a></li><li><a href="/products">Shop</a></li>${related}</ul></nav>
 </article>`;
 }

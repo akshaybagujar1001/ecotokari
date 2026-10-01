@@ -104,7 +104,7 @@ export default function SeoLanding({ page }) {
           <ul className="space-y-2 text-gray-700 text-sm md:text-base">
             <li className="flex items-start gap-2"><MapPin size={18} className="text-brand-600 mt-0.5 shrink-0" /> Pimple Saudagar, Pune – 411027, Maharashtra, India</li>
             <li className="flex items-center gap-2"><Phone size={18} className="text-brand-600 shrink-0" /> <a href="tel:+918010884556" className="hover:text-brand-700">+91 80108 84556</a></li>
-            <li className="flex items-center gap-2"><Mail size={18} className="text-brand-600 shrink-0" /> <a href="mailto:hello@ecotokari.com" className="hover:text-brand-700">hello@ecotokari.com</a></li>
+            <li className="flex items-center gap-2"><Mail size={18} className="text-brand-600 shrink-0" /> <a href="mailto:info@ecotokari.com" className="hover:text-brand-700">info@ecotokari.com</a></li>
           </ul>
           <Link to={page.shop} className="btn-primary text-sm mt-5 inline-flex">
             Shop now <ArrowRight size={16} />

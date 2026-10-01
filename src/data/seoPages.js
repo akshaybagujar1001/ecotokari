@@ -270,7 +270,7 @@ export const SEO_PAGES = [
       { q: 'Can I get a weekly delivery?', a: 'Yes. Our monthly supply plan includes weekly fresh deliveries based on your requirement.' },
       { q: 'Do you offer bulk pricing for businesses?', a: 'Yes. Regular business customers get discounted bulk pricing. Contact us for a quote.' },
       { q: 'Can you supply banana stem and banana flower too?', a: 'Yes. We supply banana stem and banana flower in retail and bulk packs along with banana leaves.' },
-      { q: 'How do I start a business account?', a: 'Call +91 80108 84556, email hello@ecotokari.com or use the contact form with your business name, location and expected quantity.' },
+      { q: 'How do I start a business account?', a: 'Call +91 80108 84556, email info@ecotokari.com or use the contact form with your business name, location and expected quantity.' },
     ],
     hi: {
       h: 'होटल, रेस्टोरेंट और कैटरर्स के लिए केले के पत्ते',
@@ -551,7 +551,7 @@ export const SEO_PAGES = [
         h: 'Order online in three steps',
         p: [
           'Browse our shop and add banana leaves, stems, flowers or combo packs to your cart. Check out with your delivery address. We pack fresh and ship to your door.',
-          'For weddings, events and business orders outside Pune, call +91 80108 84556 or email hello@ecotokari.com for a custom quote.',
+          'For weddings, events and business orders outside Pune, call +91 80108 84556 or email info@ecotokari.com for a custom quote.',
         ],
       },
     ],
@@ -567,7 +567,7 @@ export const SEO_PAGES = [
       p: [
         'हर शहर में ताज़े केले के पत्ते आसानी से नहीं मिलते। इकोटोकरी पुणे के खेतों से ताज़े केले के पत्ते, केले का तना और केले का फूल पूरे भारत में भेजता है।',
         'हम मुंबई, ठाणे, नवी मुंबई, नाशिक, नागपुर, गोवा, बेंगलुरु, हैदराबाद, चेन्नई, दिल्ली एनसीआर, अहमदाबाद और कई अन्य शहरों में ग्राहकों को सप्लाई करते हैं।',
-        'पत्ते उसी दिन तोड़कर पैक किए जाते हैं ताकि रास्ते में ताज़े रहें। बड़े ऑर्डर के लिए +91 80108 84556 पर कॉल करें या hello@ecotokari.com पर ईमेल करें।',
+        'पत्ते उसी दिन तोड़कर पैक किए जाते हैं ताकि रास्ते में ताज़े रहें। बड़े ऑर्डर के लिए +91 80108 84556 पर कॉल करें या info@ecotokari.com पर ईमेल करें।',
       ],
     },
     mr: {
@@ -575,7 +575,7 @@ export const SEO_PAGES = [
       p: [
         'प्रत्येक शहरात ताजी केळीची पाने सहज मिळत नाहीत. इकोटोकरी पुण्याजवळील शेतांमधून ताजी केळीची पाने, केळीचे खोड आणि केळफूल संपूर्ण भारतात पाठवते.',
         'मुंबई, ठाणे, नवी मुंबई, नाशिक, नागपूर, छत्रपती संभाजीनगर, कोल्हापूर, गोवा, बेंगळुरू, हैदराबाद, चेन्नई, दिल्ली एनसीआर आणि इतर अनेक शहरांतील ग्राहकांना आम्ही पुरवठा करतो.',
-        'पाने त्याच दिवशी तोडून पॅक केली जातात, जेणेकरून प्रवासात ताजी राहतील. मोठ्या ऑर्डरसाठी +91 80108 84556 वर कॉल करा किंवा hello@ecotokari.com वर ईमेल करा.',
+        'पाने त्याच दिवशी तोडून पॅक केली जातात, जेणेकरून प्रवासात ताजी राहतील. मोठ्या ऑर्डरसाठी +91 80108 84556 वर कॉल करा किंवा info@ecotokari.com वर ईमेल करा.',
       ],
     },
     shop: '/products',
