@@ -53,7 +53,7 @@ export default function Home() {
 
         <div className="relative page-shell w-full py-10 md:py-12">
           <div className="max-w-lg animate-fade-up">
-            <p className="text-brand-300 text-xs md:text-sm font-semibold tracking-tight mb-2">
+            <p className="text-accent-300 text-xs md:text-sm font-semibold tracking-tight mb-2">
               EcoTokari
             </p>
             <h1 className="text-2xl sm:text-3xl md:text-[2.15rem] font-extrabold text-white leading-[1.2] tracking-tight mb-3 text-balance">
@@ -83,7 +83,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-0 md:divide-x md:divide-brand-600/60">
             {STATS.map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex flex-col items-center text-center px-4">
-                <Icon size={18} className="text-brand-300 mb-1.5" />
+                <Icon size={18} className="text-accent-300 mb-1.5" />
                 <span className="text-lg md:text-xl font-extrabold text-white tracking-tight">{value}</span>
                 <span className="text-[11px] md:text-xs text-brand-100 mt-0.5 font-medium tracking-tight">{label}</span>
               </div>
@@ -100,9 +100,9 @@ export default function Home() {
             We don&apos;t just sell banana leaves — we build long-term relationships with hotels, caterers, and families who care about freshness.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
-            {WHY.map(({ icon: Icon, title, desc }) => (
+            {WHY.map(({ icon: Icon, title, desc }, i) => (
               <div key={title} className="surface p-6 text-center transition-transform duration-300 hover:-translate-y-0.5">
-                <div className="w-12 h-12 bg-brand-100 text-brand-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 ${i % 2 ? 'bg-accent-50 text-accent-600' : 'bg-brand-100 text-brand-700'}`}>
                   <Icon size={22} />
                 </div>
                 <h3 className="font-bold text-brand-950 mb-2 tracking-tight">{title}</h3>
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="border-y border-brand-100 bg-gradient-to-br from-brand-50 via-[#eef6ea] to-white py-12 md:py-14">
+      <section className="border-y border-brand-100 bg-gradient-to-br from-brand-50 via-[#f4f8f1] to-accent-50 py-12 md:py-14">
         <div className="page-shell text-center">
           <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-brand-950 md:text-3xl text-balance">
             Ready to Order Fresh?

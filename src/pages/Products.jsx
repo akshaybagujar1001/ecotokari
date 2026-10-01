@@ -80,7 +80,7 @@ export default function Products() {
         <div className="page-shell py-10 md:py-12">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="animate-fade-up">
-              <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
+              <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent-700">
                 <Sparkles size={14} />
                 Most ordered by customers
               </p>

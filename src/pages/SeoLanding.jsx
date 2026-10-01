@@ -99,7 +99,7 @@ export default function SeoLanding({ page }) {
           </div>
         </section>
 
-        <section className="surface p-6 md:p-8 bg-gradient-to-br from-brand-50 to-white">
+        <section className="surface p-6 md:p-8 bg-gradient-to-br from-brand-50 via-white to-accent-50">
           <h2 className="font-display text-xl font-bold text-brand-950 mb-4">Order from EcoTokari</h2>
           <ul className="space-y-2 text-gray-700 text-sm md:text-base">
             <li className="flex items-start gap-2"><MapPin size={18} className="text-brand-600 mt-0.5 shrink-0" /> Pimple Saudagar, Pune – 411027, Maharashtra, India</li>

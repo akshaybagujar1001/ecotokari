@@ -68,7 +68,7 @@ export default function ProductCard({ product }) {
                   product.badge === 'Out of Stock'
                     ? 'bg-rose-500 text-white'
                     : product.badge === 'Best Seller'
-                      ? 'bg-amber-400 text-amber-950'
+                      ? 'bg-accent-500 text-white'
                       : 'bg-white/95 text-brand-900 shadow-sm'
                 }`}
               >

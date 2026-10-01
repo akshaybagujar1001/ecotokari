@@ -2,7 +2,7 @@ export default function Terms() {
   return (
     <div className="min-h-screen py-14">
       <div className="page-shell max-w-3xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-600 mb-2">Legal</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-600 mb-2">Legal</p>
         <h1 className="font-display text-4xl font-bold text-brand-950 mb-6">Terms of Service</h1>
         <div className="surface p-6 md:p-8 space-y-4 text-gray-700 leading-relaxed text-sm md:text-base">
           <p>By using the EcoTokari website, you agree to these terms for browsing, ordering, and receiving our products.</p>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, ArrowLeft, Eye, EyeOff, Check } from 'lucide-react';
+import { ArrowLeft, Eye, EyeOff, Check } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function ForgotPassword() {
@@ -30,11 +30,11 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-green-100 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 via-white to-accent-50 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         <div className="flex justify-center mb-8">
           <Link to="/" className="flex items-center gap-2">
-            <div className="bg-brand-700 text-white p-2 rounded-xl"><Leaf size={22} /></div>
+            <img src="/logo.jpg" alt="EcoTokari logo" width="44" height="44" className="h-11 w-11 rounded-xl object-contain" />
             <span className="font-display font-bold text-2xl text-brand-800">EcoTokari</span>
           </Link>
         </div>

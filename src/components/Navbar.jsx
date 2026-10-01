@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, Menu, X, Leaf, LogOut, ChevronDown, Package } from 'lucide-react';
+import { ShoppingCart, User, Menu, X, LogOut, ChevronDown, Package } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 
@@ -34,16 +34,17 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-100/80 shadow-[0_4px_20px_rgba(15,40,20,0.04)]">
+      <div className="h-[3px] bg-gradient-to-r from-brand-700 via-brand-500 to-accent-500" />
       <div className="page-shell">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-brand-700 text-white p-2 rounded-xl group-hover:bg-brand-800 transition-colors shadow-sm shadow-brand-700/20">
-              <Leaf size={20} />
-            </div>
+            <span className="block h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-white">
+              <img src="/logo.jpg" alt="EcoTokari logo" width="44" height="44" className="h-full w-full scale-[1.3] object-contain" />
+            </span>
             <div className="leading-none">
               <span className="font-display font-extrabold text-xl tracking-tight text-brand-900">Eco</span>
-              <span className="font-display font-extrabold text-xl tracking-tight text-brand-600">Tokari</span>
+              <span className="font-display font-extrabold text-xl tracking-tight text-accent-500">Tokari</span>
             </div>
           </Link>
 
@@ -69,7 +70,7 @@ export default function Navbar() {
             <Link to="/cart" className="relative p-2 text-gray-600 hover:text-brand-700 hover:bg-brand-50 rounded-xl transition-colors">
               <ShoppingCart size={22} />
               {count > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-brand-600 text-white text-[10px] min-w-[1.25rem] h-5 px-1 flex items-center justify-center rounded-full font-bold animate-fade-in">
+                <span className="absolute -top-0.5 -right-0.5 bg-accent-500 text-white text-[10px] min-w-[1.25rem] h-5 px-1 flex items-center justify-center rounded-full font-bold animate-fade-in">
                   {count > 9 ? '9+' : count}
                 </span>
               )}

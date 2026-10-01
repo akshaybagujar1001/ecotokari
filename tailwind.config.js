@@ -17,6 +17,18 @@ export default {
           900: '#14532d',
           950: '#052e16',
         },
+        accent: {
+          50:  '#fff6f1',
+          100: '#ffe9dc',
+          200: '#ffcfb5',
+          300: '#ffab84',
+          400: '#fb8150',
+          500: '#f0602a',
+          600: '#e04a20',
+          700: '#b93a1a',
+          800: '#93311b',
+          900: '#772b19',
+        },
       },
       fontFamily: {
         sans: ['Outfit', 'system-ui', 'sans-serif'],

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Leaf, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const InstagramIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -17,15 +17,16 @@ const FOOTER_PRODUCTS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-brand-100 bg-[#f3f7f2] text-brand-950">
+    <footer className="bg-[#f3f7f2] text-brand-950">
+      <div className="h-px bg-gradient-to-r from-brand-200 via-brand-100 to-accent-200" />
       <div className="page-shell py-12 md:py-14">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           <div className="md:col-span-1">
             <div className="mb-4 flex items-center gap-2">
-              <div className="rounded-xl bg-brand-700 p-1.5 text-white">
-                <Leaf size={18} />
-              </div>
-              <span className="text-xl font-extrabold tracking-tight text-brand-900">EcoTokari</span>
+              <span className="block h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-white">
+                <img src="/logo.jpg" alt="EcoTokari logo" width="44" height="44" className="h-full w-full scale-[1.3] object-contain" />
+              </span>
+              <span className="text-xl font-extrabold tracking-tight text-brand-900">Eco<span className="text-accent-500">Tokari</span></span>
             </div>
             <p className="mb-5 text-sm font-medium leading-relaxed tracking-tight text-gray-600">
               Pune&apos;s largest supplier of fresh banana leaves, stems & flowers. Serving hotels, caterers & homes pan-India since 2018.
