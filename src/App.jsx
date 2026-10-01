@@ -17,6 +17,8 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import ProtectedRoute from './components/ProtectedRoute';
 import Account from './pages/Account';
+import SeoLanding from './pages/SeoLanding';
+import { SEO_PAGES } from './data/seoPages';
 
 function Layout({ children }) {
   return (
@@ -47,6 +49,9 @@ export default function App() {
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
             <Route path="/terms" element={<Layout><Terms /></Layout>} />
+            {SEO_PAGES.map((page) => (
+              <Route key={page.slug} path={`/${page.slug}`} element={<Layout><SeoLanding page={page} /></Layout>} />
+            ))}
             <Route path="*" element={
               <Layout>
                 <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 text-gray-500">
